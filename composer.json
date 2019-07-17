@@ -1,0 +1,17 @@
+{
+    "name": "qubeans/qubeans",
+    "description": "SoofaPay PHP package",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "William Langat",
+            "email": "langatwilliamk@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {"qubeans\\qubeans\\": "src/"}
+    },
+    "require": {}
+}
