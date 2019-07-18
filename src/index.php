@@ -26,7 +26,6 @@ class Index{
 
         curl_setopt($ch, CURLOPT_HEADER, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-//        curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('X-TILL: '.$this->till_number,'Authorization: '.$this->clientSecret));
         $response = curl_exec($ch);
 
@@ -37,16 +36,12 @@ class Index{
 
         if($this->status == $this->SUCCESSFUL){
             $result = json_decode($response);
-    return $result;
-//            var_dump($result);
-//            $this->transaction = new Transaction($result);
-//            echo $this->transaction;
+            $this->transaction = new Transaction($result);
+            return $this->transaction;
         }elseif ($this->status == $this->TRANSACTION_DOES_NOT_EXIST){
-            return "Transaction does not exist";
-//            throw new Exception('Transaction of id '.$tid.' does not exist');
+            throw new Exception('Transaction of id '.$tid.' does not exist');
         }elseif ($this->status === 403){
-            return "You are not allowed";
-//           throw new Exception("Your are not allowed to perform this action. Please ensure you use your correct till number and client_secret");
+           throw new Exception("Your are not allowed to perform this action. Please ensure you use your correct till number and client_secret");
         }
     }
 
