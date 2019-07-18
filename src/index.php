@@ -72,9 +72,9 @@ class Index{
 
         if($this->status == $this->SUCCESSFUL){
             $result = json_decode($response);
-            return $this->status;
+            return $result;
         }elseif ($this->status === 403){
-            return $this->status;
+//            return $this->status;
             throw new Exception("Your are not allowed to perform this action.");
         }else{
             return $this->status;
