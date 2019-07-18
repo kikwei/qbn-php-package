@@ -11,7 +11,7 @@
     ],
     "minimum-stability": "dev",
     "autoload": {
-        "psr-4": {"qubeans\\qubeans\\": "src/"}
+        "psr-4": {"qubeans\\Qubeans\\": "src/"}
     },
     "require": {}
 }

@@ -2,9 +2,7 @@
 
 namespace qubeans\qubeans;
 
-//require_once 'Transaction.php';
 use \Transaction;
-//use ErrorException;
 
 class Index{
 
