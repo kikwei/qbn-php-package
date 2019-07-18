@@ -37,6 +37,8 @@ class Index{
 
         if($this->status == $this->SUCCESSFUL){
             $result = json_decode($response);
+
+            var_dump($result);
             $this->transaction = new Transaction($result);
             echo $this->transaction;
         }elseif ($this->status == $this->TRANSACTION_DOES_NOT_EXIST){
