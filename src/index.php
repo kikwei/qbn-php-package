@@ -26,7 +26,7 @@ class Index{
 
         curl_setopt($ch, CURLOPT_HEADER, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_POST, true);
+//        curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('X-TILL: '.$this->till_number,'Authorization: '.$this->clientSecret));
         $response = curl_exec($ch);
 
