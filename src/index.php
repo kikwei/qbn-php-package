@@ -2,7 +2,7 @@
 
 namespace qubeans\Qubeans;
 
-use \Transaction;
+require_once 'Transaction.php';
 
 class Index{
 
