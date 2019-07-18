@@ -1,6 +1,6 @@
 <?php
 
-namespace qubeans\qubeans;
+namespace qubeans\Qubeans;
 
 use \Transaction;
 
