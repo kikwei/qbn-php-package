@@ -4,7 +4,7 @@ namespace qubeans\qubeans;
 
 //require_once 'Transaction.php';
 use \Transaction;
-use ErrorException;
+//use ErrorException;
 
 class Index{
 
@@ -42,9 +42,9 @@ class Index{
             $this->transaction = new Transaction($result);
             return $this->transaction;
         }elseif ($this->status == $this->TRANSACTION_DOES_NOT_EXIST){
-            throw new ErrorException('Transaction of id '.$tid.' does not exist');
+            throw new Exception('Transaction of id '.$tid.' does not exist');
         }elseif ($this->status === 403){
-           throw new ErrorException("Your are not allowed to perform this action. Please ensure you use your correct till number and client_secret");
+           throw new Exception("Your are not allowed to perform this action. Please ensure you use your correct till number and client_secret");
         }
     }
 
@@ -76,7 +76,7 @@ class Index{
             $result = json_decode($response);
             return $result;
         }elseif ($this->status === 403){
-            throw new ErrorException("Your are not allowed to perform this action.");
+            throw new Exception("Your are not allowed to perform this action.");
         }
     }
 }
