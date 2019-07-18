@@ -56,7 +56,7 @@ class Index{
 
     public function getBalance(){
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL,'http://api.soofapay.com/v1/balance/');
+        curl_setopt($ch, CURLOPT_URL,'https://api.soofapay.com/v1/balance/');
 
 
         curl_setopt($ch, CURLOPT_HEADER, false);
