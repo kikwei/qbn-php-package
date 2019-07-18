@@ -38,10 +38,12 @@ class Index{
         if($this->status == $this->SUCCESSFUL){
             $result = json_decode($response);
             $this->transaction = new Transaction($result);
-            return $this->transaction;
+            echo $this->transaction;
         }elseif ($this->status == $this->TRANSACTION_DOES_NOT_EXIST){
+            echo "Transaction does not exist";
             throw new Exception('Transaction of id '.$tid.' does not exist');
         }elseif ($this->status === 403){
+            echo "You are not allowed";
            throw new Exception("Your are not allowed to perform this action. Please ensure you use your correct till number and client_secret");
         }
     }
