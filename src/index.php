@@ -37,16 +37,16 @@ class Index{
 
         if($this->status == $this->SUCCESSFUL){
             $result = json_decode($response);
-
-            var_dump($result);
-            $this->transaction = new Transaction($result);
-            echo $this->transaction;
+    return $result;
+//            var_dump($result);
+//            $this->transaction = new Transaction($result);
+//            echo $this->transaction;
         }elseif ($this->status == $this->TRANSACTION_DOES_NOT_EXIST){
-            echo "Transaction does not exist";
-            throw new Exception('Transaction of id '.$tid.' does not exist');
+            return "Transaction does not exist";
+//            throw new Exception('Transaction of id '.$tid.' does not exist');
         }elseif ($this->status === 403){
-            echo "You are not allowed";
-           throw new Exception("Your are not allowed to perform this action. Please ensure you use your correct till number and client_secret");
+            return "You are not allowed";
+//           throw new Exception("Your are not allowed to perform this action. Please ensure you use your correct till number and client_secret");
         }
     }
 
