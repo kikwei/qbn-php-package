@@ -37,8 +37,8 @@ class Index{
 
         if($this->status == $this->SUCCESSFUL){
             $result = json_decode($response);
-//            $this->transaction = new Transaction($result);
-            return $response;
+            $this->transaction = new Transaction($result);
+            return $this->transaction;
         }elseif ($this->status == $this->TRANSACTION_DOES_NOT_EXIST){
             throw new Exception('Transaction of id '.$tid.' does not exist');
         }elseif ($this->status === 403){
