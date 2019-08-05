@@ -45,7 +45,8 @@ class Index{
         }elseif ($this->status == $this->TRANSACTION_DOES_NOT_EXIST){
             throw new Exception('Transaction of id '.$tid.' does not exist');
         }elseif ($this->status === 403){
-           throw new Exception("Your are not allowed to perform this action. Please ensure you use your correct till number and client_secret");
+//           throw new Exception("Your are not allowed to perform this action. Please ensure you use your correct till number and client_secret");
+            return json_decode('[{"Error": "Your are not allowed to perform this action. Please ensure you use your correct till number and client_secret"}]');
         }
     }
 
@@ -78,7 +79,6 @@ class Index{
             $result = json_decode($response);
             return $result;
         }elseif ($this->status === 403){
-//            return $this->status;
             throw new Exception("Your are not allowed to perform this action.");
         }else{
             return $this->status;
