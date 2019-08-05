@@ -3,9 +3,9 @@
 namespace qubeans\Qubeans;
 
 
-use Transaction;
-use Exception;
-require_once 'transaction.php';
+//use Transaction;
+//use Exception;
+//require_once 'transaction.php';
 
 
 class Index{
@@ -43,16 +43,15 @@ class Index{
             $this->transaction = $result;
             return $result;
         }elseif ($this->status == $this->TRANSACTION_DOES_NOT_EXIST){
-            throw new Exception('Transaction of id '.$tid.' does not exist');
+            return json_decode('[{"Error": "Transaction with id '.$tid.' does not exist."}]');
         }elseif ($this->status === 403){
-//           throw new Exception("Your are not allowed to perform this action. Please ensure you use your correct till number and client_secret");
-            return json_decode('[{"Error": "Your are not allowed to perform this action. Please ensure you use your correct till number and client_secret"}]');
+            return json_decode('[{"Error": "Your are not allowed to perform this action. Please ensure you use your correct till number and client_secret."}]');
         }
     }
 
     public function getTransaction(){
         if($this->transaction === null){
-            throw new ErrorException("A transaction is not available yet. Please ensure you call find method and verify that one exists before proceeding");
+            return json_decode('[{"Error": "A transaction is not available yet. Please ensure you call find method and verify that one exists before proceeding."}]');
         }else{
             return $this->transaction;
         }
@@ -79,7 +78,8 @@ class Index{
             $result = json_decode($response);
             return $result;
         }elseif ($this->status === 403){
-            throw new Exception("Your are not allowed to perform this action.");
+            return json_decode('[{"Error": "Your are not allowed to perform this action."}]');
+
         }else{
             return $this->status;
         }
