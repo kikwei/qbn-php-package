@@ -36,7 +36,6 @@ class Index{
         $this->status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
 
-        echo 'Status'.$this->status;
 
         if($this->status == $this->SUCCESSFUL){
             $result = json_decode($response);
