@@ -1,6 +1,6 @@
 <?php
 
-//namespace Qubeans;
+namespace Qubeans;
 
 //use Transaction;
 //use Exception;
