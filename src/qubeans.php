@@ -7,7 +7,7 @@ namespace qubeans\Qubeans;
 //require_once 'transaction.php';
 
 
-class Index{
+class Qubeans{
 
     public $till_number;
     public $clientSecret;
