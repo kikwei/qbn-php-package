@@ -41,7 +41,7 @@ class Index{
         if($this->status == $this->SUCCESSFUL){
             $result = json_decode($response);
             $this->transaction = new Transaction($result);
-            return $this->transaction;
+            return $response;
         }elseif ($this->status == $this->TRANSACTION_DOES_NOT_EXIST){
             throw new Exception('Transaction of id '.$tid.' does not exist');
         }elseif ($this->status === 403){
@@ -56,6 +56,8 @@ class Index{
             return $this->transaction;
         }
     }
+
+
 
     public function getBalance(){
         $ch = curl_init();
